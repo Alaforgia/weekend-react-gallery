@@ -1,12 +1,8 @@
 // import axios from "axios";
 // import { render } from "react-dom";
 import GalleryItem from "../GalleryItem/GalleryItem";
-// import setState from "react";
-// import TextSwap from "../TextSwap/TextSwap";
-// import { useState, useEffect } from "react";
 
-function GalleryList({ list }) {
-  console.log("list =", list);
+function GalleryList({ list, getPic }) {
   return (
     <>
       <h3>Gallery!</h3>
@@ -14,7 +10,7 @@ function GalleryList({ list }) {
         return (
           <div key={item.id}>
             <h1>Test</h1>
-            <GalleryItem item={item} />
+            <GalleryItem item={item} getPic={getPic} />
           </div>
         );
       })}

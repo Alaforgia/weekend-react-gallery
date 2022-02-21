@@ -17,6 +17,7 @@ function App() {
     axios
       .get("/gallery")
       .then((response) => {
+        console.log("response =", response.data);
         setGalleryList(response.data);
       })
       .catch((error) => {
@@ -29,7 +30,7 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
-      <GalleryList list={galleryList} />
+      <GalleryList list={galleryList} getPic={getPic} />
       {/* <p>Gallery goes here</p> */}
       {/* <GalleryItem items={galleryList} /> */}
     </div>

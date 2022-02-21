@@ -1,8 +1,25 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-function GalleryItem({ item }) {
-  console.log("item =", item);
+function GalleryItem({ item, getPic }) {
   const [isDescriptionActive, setDescriptionActive] = useState(false);
+  const [likeCount, setLikeCount] = useState(item.likes);
+  const likeClickHandler = () => {
+    setLikeCount(likeCount + 1);
+    updateGalleryItem();
+  };
+  const updateGalleryItem = () => {
+    axios
+      .put("/gallery/like/" + item.id)
+      .then((response) => {
+        console.log(response);
+        getPic();
+      })
+      .catch((error) => {
+        console.log("getPic error", error);
+      });
+  };
+
   return (
     <>
       <div
@@ -12,6 +29,15 @@ function GalleryItem({ item }) {
       >
         {isDescriptionActive ? <p>{item.description}</p> : <img src={item.path} />}
       </div>
+      <h3>Likes: {likeCount}</h3>
+
+      <button
+        onClick={() => {
+          likeClickHandler();
+        }}
+      >
+        Like!
+      </button>
     </>
   );
 }
