@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
-// import TextSwap from "../TextSwap/TextSwap";
 // import GalleryItem from "../GalleryItem/GalleryItem";
 function App() {
   const [galleryList, setGalleryList] = useState([]);

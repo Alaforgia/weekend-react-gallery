@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function GalleryItem({ item, getPic }) {
+  // Used for toggling state
   const [isDescriptionActive, setDescriptionActive] = useState(false);
+  // Used for updating state
   const [likeCount, setLikeCount] = useState(item.likes);
   const likeClickHandler = () => {
     setLikeCount(likeCount + 1);
