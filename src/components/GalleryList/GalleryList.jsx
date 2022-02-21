@@ -1,29 +1,29 @@
 // import axios from "axios";
+// import { render } from "react-dom";
 import GalleryItem from "../GalleryItem/GalleryItem";
-import { useState, useEffect } from "react";
-function GalleryList({ list, items }) {
+// import setState from "react";
+// import TextSwap from "../TextSwap/TextSwap";
+// import { useState, useEffect } from "react";
+
+function GalleryList({ list }) {
+  console.log("list =", list);
   return (
     <>
-      {list.map((item) => (
-        <div key={item.id}>
-          <h3>Gallery!</h3>
-        </div>
-        
-      ))}
-    <div>
-        <GalleryItem />
-    </div>
+      <h3>Gallery!</h3>
+      {list.map((item) => {
+        return (
+          <div key={item.id}>
+            <h1>Test</h1>
+            <GalleryItem item={item} />
+          </div>
+        );
+      })}
     </>
   );
 }
 
-// function pictures() {
-//   const [galleryList, setGalleryList] = useState([]);
-//   console.log("what is this");
-//   return (
-//     <>
-//       <GalleryItem />
-//     </>
-//   );
-// }
+// ReactDOM.render(
+//     <GalleryItem />
+// )
+
 export default GalleryList;

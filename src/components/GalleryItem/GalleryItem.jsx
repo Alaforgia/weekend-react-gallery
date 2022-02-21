@@ -1,8 +1,16 @@
-function GalleryItem({items}) {
+import React, { useState } from "react";
+
+function GalleryItem({ item }) {
+  console.log("item =", item);
+  const [isDescriptionActive, setDescriptionActive] = useState(false);
   return (
     <>
-      <div key={items}>
-        <img src="images/goat_small.jpg" />
+      <div
+        onClick={() => {
+          setDescriptionActive(!isDescriptionActive);
+        }}
+      >
+        {isDescriptionActive ? <p>{item.description}</p> : <img src={item.path} />}
       </div>
     </>
   );
